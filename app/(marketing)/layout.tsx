@@ -1,3 +1,4 @@
+import { Footer } from "./footer";
 import {Header} from "./header";
 
 
@@ -13,6 +14,7 @@ const MarketingLayout =  ({children}: Props)=>{
             <main className="flex-1 flex flex-col justify-center items-center">
             {children}
             </main>
+            <Footer/>
         </div>
     )
 }

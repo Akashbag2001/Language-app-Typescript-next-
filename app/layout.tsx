@@ -1,4 +1,11 @@
 import type { Metadata } from "next";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 import { Nunito } from "next/font/google";
 import "./globals.css";
 
@@ -15,8 +22,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en">
-      <body className={font.className}>{children}</body>
+      <body className={font.className}>
+      <div className="flex flex-end">
+      <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+      </div>
+        {children}</body>
     </html>
+    </ClerkProvider>
   );
 }
